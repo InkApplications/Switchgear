@@ -1,3 +1,4 @@
 rootProject.name = 'Switchgear'
 
 include 'switchgear'
+include 'provider-firebase'
