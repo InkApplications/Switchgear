@@ -162,7 +162,7 @@ for all of your application Parameters.
 
 For Example:
 
-```
+```kotlin
 val MY_PARAMETER = Parameter.Switch("my.parameter", false)
 
 @Module class MyModule {
