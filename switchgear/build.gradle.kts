@@ -2,6 +2,15 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     kotlin("jvm")
+    id("maven-publish")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("default") {
+            from(components["java"])
+        }
+    }
 }
 
 dependencies {

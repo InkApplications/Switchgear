@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="parameter_reset">Reset to Default</string>
+    <string name="parameter_default">Default: %s</string>
+</resources>

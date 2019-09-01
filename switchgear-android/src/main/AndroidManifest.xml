@@ -1,0 +1,8 @@
+<manifest package="inkapplications.switchgear.android"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name="switchgear.android.ControlPanelActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    </application>
+</manifest>

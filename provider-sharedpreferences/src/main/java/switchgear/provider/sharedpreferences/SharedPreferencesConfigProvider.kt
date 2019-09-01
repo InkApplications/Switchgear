@@ -20,5 +20,25 @@ class SharedPreferencesConfigProvider(context: Context): ConfigProvider {
         return preferences.getBoolean(key, false)
     }
 
+    /**
+     * Override the value using shared preferences.
+     *
+     * Note: Setting this back to the default is not the same as clearing it.
+     * To remove the override, call `clear(key)` otherwise this will still
+     * override other potential providers.
+     *
+     * @param key the parameter ID to override
+     * @param state the value to override the parameter with
+     */
     fun setBoolean(key: String, state: Boolean) = preferences.edit().putBoolean(key, state).apply()
+
+    /**
+     * Resets an overridden config parameter.
+     *
+     * After a clear is done, this provider will no longer effect the state of
+     * the parameter.
+     *
+     * @param key the parameter ID to reset
+     */
+    fun clear(key: String) = preferences.edit().remove(key).apply()
 }
