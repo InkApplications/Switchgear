@@ -19,4 +19,6 @@ class SharedPreferencesConfigProvider(context: Context): ConfigProvider {
 
         return preferences.getBoolean(key, false)
     }
+
+    fun setBoolean(key: String, state: Boolean) = preferences.edit().putBoolean(key, state).apply()
 }

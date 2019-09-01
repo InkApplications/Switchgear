@@ -8,6 +8,9 @@ plugins {
 
 android {
     compileSdkVersion(28)
+    defaultConfig {
+        minSdkVersion(9)
+    }
     lintOptions {
         tasks {
             lint {
