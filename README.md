@@ -1,7 +1,7 @@
 Switchgear
 ==========
 
-![Logo](docs/assets/Logo-Full.png)
+![Logo](docs/assets/Logo-Full.svg)
 
 A feature toggle and app configuration toolset.
 
