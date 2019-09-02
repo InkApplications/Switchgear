@@ -1,6 +1,6 @@
 rootProject.name = 'Switchgear'
 
-include 'switchgear'
-include 'android-control-panel'
+include 'panel-android-sharedpreferences'
 include 'provider-firebase'
 include 'provider-sharedpreferences'
+include 'switchgear'

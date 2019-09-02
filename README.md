@@ -126,15 +126,20 @@ class MyApplication: Application() {
 
 Currently Switchgear only supports boolean `Switch` parameters. More soon!
 
-Android Control Panel
----------------------
+Panels
+------
 
-The Android Control panel allows you to view and override configurations
-at the press of a button.
+Panels are pre-built UI's that allow you to view and modify the state of
+configuration flags.
+
+### Android SharedPreferences Panel
+
+The Android SharedPreferences panel allows you to view and override
+configurations stored in SharedPreferences at the press of a button.
 
 ![Control Panel Screenshot](docs/assets/Android-Control-Panel.png)
 
-Launching the control panel is as easy as starting the with a list of parameters
+Launching the Panel is as easy as starting the with a list of parameters
 to be displayed:
 
 ```kotlin
@@ -147,8 +152,8 @@ class MyActivity: Activity() {
 }
 ```
 
-The control panel uses the `SharedPreferencesConfigProvider` to change
-configurations. You must be using this to use the Control Panel. It is
+The panel uses the `SharedPreferencesConfigProvider` to change
+configurations. You must be using this to use the Panel. It is
 **highly recommended** that the SharedPreferencesConfigProvider be the
 first/top listed Configuration Provider when creating you AppConfig.
 
