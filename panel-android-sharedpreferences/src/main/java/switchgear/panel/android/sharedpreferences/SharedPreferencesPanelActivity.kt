@@ -1,4 +1,4 @@
-package switchgear.android
+package switchgear.panel.android.sharedpreferences
 
 import android.content.Context
 import android.content.Intent
@@ -8,19 +8,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
-import inkapplications.switchgear.android.R
+import inkapplications.switchgear.panel.android.sharedpreferences.R
 import switchgear.Parameter
 import switchgear.provider.sharedpreferences.SharedPreferencesConfigProvider
 
 private const val PARAMETERS = "extra.parameters"
 
 /**
- * A list of overridable configuration parameters.
+ * A list of overridable configuration parameters in SharedPreferences.
  *
  * This allows you to view and override all of the specified configuration
  * parameters using the SharedPreferences provider.
  */
-open class ControlPanelActivity: AppCompatActivity() {
+open class SharedPreferencesPanelActivity: AppCompatActivity() {
     private val parameters get() = intent.getSerializableExtra(PARAMETERS) as Array<Parameter<Any>>
 
     private lateinit var controlPanel: RecyclerView
@@ -31,7 +31,7 @@ open class ControlPanelActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.control_panel)
+        setContentView(R.layout.sharedpreference_panel)
         controlPanel = findViewById(R.id.control_panel)
         controlPanel.layoutManager = LinearLayoutManager(this)
         controlPanel.adapter = adapter
@@ -51,8 +51,8 @@ open class ControlPanelActivity: AppCompatActivity() {
     }
 }
 
-fun Context.startControlPanel(parameters: List<Parameter<Any>>) {
-    Intent(this, ControlPanelActivity::class.java)
+fun Context.startSharedPreferencePanel(parameters: List<Parameter<Any>>) {
+    Intent(this, SharedPreferencesPanelActivity::class.java)
         .apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
             putExtra(PARAMETERS, parameters.toTypedArray())

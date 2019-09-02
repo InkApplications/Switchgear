@@ -1,4 +1,4 @@
-package switchgear.android
+package switchgear.panel.android.sharedpreferences
 
 import android.view.View
 import android.widget.CompoundButton
@@ -7,7 +7,7 @@ import android.widget.Switch
 import android.widget.TextView
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
-import inkapplications.switchgear.android.R
+import inkapplications.switchgear.panel.android.sharedpreferences.R
 import switchgear.Parameter
 
 /**

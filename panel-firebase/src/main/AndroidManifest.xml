@@ -1,0 +1,8 @@
+<manifest package="inkapplications.switchgear.panel.firebase"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name="switchgear.panel.firebase.FirebasePanelActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    </application>
+</manifest>

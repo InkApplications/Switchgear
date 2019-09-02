@@ -126,15 +126,20 @@ class MyApplication: Application() {
 
 Currently Switchgear only supports boolean `Switch` parameters. More soon!
 
-Android Control Panel
----------------------
+Panels
+------
 
-The Android Control panel allows you to view and override configurations
-at the press of a button.
+Panels are pre-built UI's that allow you to view and modify the state of
+configuration flags.
 
-![Control Panel Screenshot](docs/assets/Android-Control-Panel.png)
+### Android SharedPreferences Panel
 
-Launching the control panel is as easy as starting the with a list of parameters
+The Android SharedPreferences panel allows you to view and override
+configurations stored in SharedPreferences at the press of a button.
+
+![Panel Screenshot](docs/assets/Android-Control-Panel.png)
+
+Launching the Panel is as easy as starting the with a list of parameters
 to be displayed:
 
 ```kotlin
@@ -142,15 +147,36 @@ class MyActivity: Activity() {
     private val myParameters = listOf(TEST_PARAMETER)
 
     fun showControlPanel() {
-        startControlPanel(myParameters)
+        startSharedPreferencePanel(myParameters)
     }
 }
 ```
 
-The control panel uses the `SharedPreferencesConfigProvider` to change
-configurations. You must be using this to use the Control Panel. It is
+The panel uses the `SharedPreferencesConfigProvider` to change
+configurations. You must be using this to use the Panel. It is
 **highly recommended** that the SharedPreferencesConfigProvider be the
 first/top listed Configuration Provider when creating you AppConfig.
+
+### Firebase Panel
+
+The Firebase Panel allows you to inspect the currently loaded values from
+RemoteConfig.
+Note: You cannot change values from Firebase with this panel.
+
+![Panel Screenshot](docs/assets/Firebase-Control-Panel.png)
+
+You can launch the Firebase panel by calling `startFirebasePanel` with a list
+of your parameters:
+
+```kotlin
+class MyActivity: Activity() {
+    private val myParameters = listOf(TEST_PARAMETER)
+
+    fun showControlPanel() {
+        startFirebasePanel(myParameters)
+    }
+}
+```
 
 Dependency Injection
 --------------------

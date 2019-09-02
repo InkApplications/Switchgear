@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="switchgear_brand_primary">#F27642</color>
+    <color name="switchgear_brand_secondary">#212C32</color>
+    <color name="switchgear_negative">#783B2F</color>
+    <color name="switchgear_positive">#5F7D57</color>
+</resources>

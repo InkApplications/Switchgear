@@ -1,4 +1,4 @@
-package switchgear.android
+package switchgear.panel.android.sharedpreferences
 
 import switchgear.MissingConfigException
 import switchgear.Parameter
