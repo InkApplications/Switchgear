@@ -51,7 +51,7 @@ open class SharedPreferencesPanelActivity: AppCompatActivity() {
     }
 }
 
-fun Context.startControlPanel(parameters: List<Parameter<Any>>) {
+fun Context.startSharedPreferencePanel(parameters: List<Parameter<Any>>) {
     Intent(this, SharedPreferencesPanelActivity::class.java)
         .apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK

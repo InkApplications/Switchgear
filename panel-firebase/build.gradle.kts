@@ -20,8 +20,7 @@ android {
 }
 
 dependencies {
-    api(project(":switchgear"))
-    api(project(":provider-sharedpreferences"))
+    api(project(":provider-firebase"))
     implementation(project(":panel-android"))
 
     testImplementation("junit:junit:4.12")

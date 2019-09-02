@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -21,8 +23,12 @@ android {
 
 dependencies {
     api(project(":switchgear"))
-    api(project(":provider-sharedpreferences"))
-    implementation(project(":panel-android"))
+    api("org.jetbrains.kotlin:kotlin-stdlib:${KotlinCompilerVersion.VERSION}")
+    api("androidx.appcompat:appcompat:1.0.2")
+    api("androidx.recyclerview:recyclerview:1.0.0")
+    api("com.android.support.constraint:constraint-layout:1.1.3")
+    api("com.xwray:groupie:2.5.1")
+    api("com.xwray:groupie-kotlin-android-extensions:2.5.1")
 
     testImplementation("junit:junit:4.12")
 }
