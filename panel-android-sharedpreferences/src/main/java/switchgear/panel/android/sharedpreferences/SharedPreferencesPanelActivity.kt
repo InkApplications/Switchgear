@@ -31,7 +31,7 @@ open class SharedPreferencesPanelActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.control_panel)
+        setContentView(R.layout.sharedpreference_panel)
         controlPanel = findViewById(R.id.control_panel)
         controlPanel.layoutManager = LinearLayoutManager(this)
         controlPanel.adapter = adapter
