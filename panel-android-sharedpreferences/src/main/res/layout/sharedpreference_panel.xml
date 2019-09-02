@@ -14,24 +14,20 @@
             android:id="@+id/firebase_panel_icon"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintDimensionRatio="5:8"
             app:layout_constraintTop_toTopOf="@+id/firebase_panel_title"
             app:layout_constraintBottom_toBottomOf="@+id/firebase_panel_title"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/firebase_panel_title"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            android:src="@drawable/logo"
+            android:src="@drawable/ic_bolt"
             android:contentDescription="@string/switchgear_logo_description" />
 
         <TextView
-            style="@style/TextAppearance.AppCompat.Title"
+            style="@style/switchgear_title"
             android:id="@+id/firebase_panel_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="thin"
-            app:layout_constraintStart_toEndOf="@+id/firebase_panel_icon"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/firebase_panel_icon"
             android:padding="8dp"
             android:text="@string/sharedpreference_panel_title" />
 

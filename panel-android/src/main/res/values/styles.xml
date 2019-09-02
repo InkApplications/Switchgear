@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="switchgear_title" parent="@style/TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">@color/switchgear_brand_secondary</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+</resources>
