@@ -73,9 +73,9 @@ class MyApplication: Application() {
 Creating your AppConfig
 -----------------------
 
-### Priority-Config
+### Prioritized-Config
 
-A `PriorityConfig` allows you to search one or more configuration providers
+A `PrioritizedConfig` allows you to search one or more configuration providers
 before using the default value of the parameter.
 
 The providers will be invoked in the order they are specified. For example:
