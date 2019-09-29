@@ -144,12 +144,19 @@ to be displayed:
 
 ```kotlin
 class MyActivity: Activity() {
-    private val myParameters = listOf(TEST_PARAMETER)
+    private val myParameters = arrayOf(TEST_PARAMETER)
 
     fun showControlPanel() {
         startSharedPreferencePanel(myParameters)
     }
 }
+```
+
+Alternatively, you can use the Shared Preference panel as a fragment by using
+`SharedPreferencesPanelFragment`
+
+```kotlin
+val panel = SharedPreferencesPanelFragment(myParameters)
 ```
 
 The panel uses the `SharedPreferencesConfigProvider` to change
@@ -170,12 +177,19 @@ of your parameters:
 
 ```kotlin
 class MyActivity: Activity() {
-    private val myParameters = listOf(TEST_PARAMETER)
+    private val myParameters = arrayOf(TEST_PARAMETER)
 
     fun showControlPanel() {
         startFirebasePanel(myParameters)
     }
 }
+```
+
+Alternatively, you can use the Firebase panel as a fragment by using
+`FirebasePanelFragment`
+
+```kotlin
+val panel = FirebasePanelFragment(myParameters)
 ```
 
 Dependency Injection
