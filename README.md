@@ -206,7 +206,7 @@ For Example:
 val MY_PARAMETER = Parameter.Switch("my.parameter", false)
 
 @Module class MyModule {
-    @Provides @IntoSet fun myParameter(): Parameter<@JvmSuppressWildcards Any> = MY_PARAMETER
+    @Provides @IntoSet fun myParameter(): @JvmSuppressWildcards Parameter<Any> = MY_PARAMETER
 }
 ```
 
@@ -215,7 +215,7 @@ parameters easily:
 
 ```kotlin
 class MyActivity: Activity() {
-    @Inject lateinit var myParameters: Parameter<@JvmSuppressWildcards Any>
+    @Inject lateinit var myParameters: @JvmSuppressWildcards Parameter<Any>
 
     fun showControlPanel() {
         startControlPanel(myParameters)
@@ -230,7 +230,7 @@ default value map:
 ```kotlin
 class MyActivity: Activity() {
     @Inject lateinit var remoteConfig: FirebaseRemoteConfig
-    @Inject lateinit var myParameters: Parameter<@JvmSuppressWildcards Any>
+    @Inject lateinit var myParameters: @JvmSuppressWildcards Parameter<Any>
 
     fun loadFirebaseDefaults() {
         Log.i("Setting Firebase Config Defaults")
