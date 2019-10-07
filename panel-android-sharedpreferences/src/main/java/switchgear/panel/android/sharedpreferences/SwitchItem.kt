@@ -14,8 +14,8 @@ import switchgear.Parameter
  * Item displayed for a switch on/off toggle.
  */
 internal class SwitchItem(
-    val parameter: Parameter.Switch,
-    val currentValue: Boolean,
+    val parameter: Parameter<out Boolean>,
+    val currentValue: Boolean?,
     val isOverridden: Boolean,
     val onOverride: (String, Boolean) -> Unit,
     val onClear: (String) -> Unit
@@ -34,10 +34,15 @@ internal class SwitchItem(
             findViewById<TextView>(R.id.item_switch_title).text = parameter.key
             findViewById<TextView>(R.id.item_switch_default).text = resources.getString(R.string.parameter_default, parameter.default.toString())
 
-            findViewById<Switch>(R.id.item_switch_switch).isChecked = currentValue
-            findViewById<Switch>(R.id.item_switch_switch).setOnCheckedChangeListener(onOverrideListener)
-            findViewById<ImageButton>(R.id.item_switch_reset).visibility = if (isOverridden) View.VISIBLE else View.INVISIBLE
-            findViewById<ImageButton>(R.id.item_switch_reset).setOnClickListener(onClearListener)
+            findViewById<Switch>(R.id.item_switch_switch).apply {
+                isChecked = currentValue ?: false
+                visibility = if (currentValue != null) View.VISIBLE else View.INVISIBLE
+                setOnCheckedChangeListener(onOverrideListener)
+            }
+            findViewById<ImageButton>(R.id.item_switch_reset).apply {
+                visibility = if (isOverridden) View.VISIBLE else View.INVISIBLE
+                setOnClickListener(onClearListener)
+            }
         }
     }
 

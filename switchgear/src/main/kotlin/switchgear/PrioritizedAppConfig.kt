@@ -10,18 +10,26 @@ package switchgear
  *
  * @param providers an ordered list of configuration providers to use.
  */
-class PrioritizedConfig(
+class PrioritizedAppConfig(
     private vararg val providers: ConfigProvider
 ): AppConfig {
-    override fun <T> getConfig(parameter: Parameter<T>): T  = when (parameter) {
-        is Parameter.Switch -> findOrDefault(parameter, ConfigProvider::getBoolean)
-    } as T
+    override fun <T : Any> get(argument: Parameter.Optional<T>): T? {
+        return providers.tryAll {
+            try {
+                it.getConfig(argument.key, argument.type)
+            } catch (missing: MissingConfigException) {
+                argument.default
+            }
+        }
+    }
 
-    private inline fun <T> findOrDefault(parameter: Parameter<T>, lookup: (ConfigProvider, String) -> T): T {
-        return try {
-            providers.tryAll { lookup(it, parameter.key) }
-        } catch (missing: MissingConfigException) {
-            parameter.default
+    override fun <T : Any> get(argument: Parameter.Required<T>): T {
+        return providers.tryAll {
+            try {
+                it.getConfig(argument.key, argument.type)
+            } catch (missing: MissingConfigException) {
+                argument.default
+            }
         }
     }
 

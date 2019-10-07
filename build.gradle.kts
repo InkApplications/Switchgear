@@ -11,7 +11,7 @@ buildscript {
 }
 
 subprojects {
-    version="1.0-SNAPSHOT"
+    version="2.0-SNAPSHOT"
     group="com.github.InkApplications.Switchgear"
 
     repositories {

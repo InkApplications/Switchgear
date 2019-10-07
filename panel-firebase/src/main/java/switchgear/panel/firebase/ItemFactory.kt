@@ -1,17 +1,18 @@
 package switchgear.panel.firebase
 
-import switchgear.ConfigProvider
 import switchgear.Parameter
+import switchgear.provider.firebase.RemoteConfigProvider
 
 /**
  * Creates various groupie items for the different parameter types.
  */
 internal class ItemFactory(
-    private val provider: ConfigProvider
+    private val provider: RemoteConfigProvider
 ) {
-    fun create(parameter: Parameter<Any>) = when (parameter) {
-        is Parameter.Switch -> createSwitch(parameter)
+    fun create(parameter: Parameter<out Any>) = when (parameter.type) {
+        Boolean::class -> createSwitch(parameter as Parameter<out Boolean>)
+        else -> null
     }
 
-    private fun createSwitch(parameter: Parameter.Switch) = SwitchItem(parameter, provider.getBoolean(parameter.key))
+    private fun createSwitch(parameter: Parameter<out Boolean>) = SwitchItem(parameter, provider.getConfig(parameter.key, parameter.type))
 }

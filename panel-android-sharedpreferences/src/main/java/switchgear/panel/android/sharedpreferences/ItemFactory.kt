@@ -11,12 +11,13 @@ internal class ItemFactory(
     private val preferenceProvider: SharedPreferencesConfigProvider,
     private val onUpdate: () -> Unit
 ) {
-    fun create(parameter: Parameter<Any>) = when (parameter) {
-        is Parameter.Switch -> createSwitch(parameter)
+    fun create(parameter: Parameter<out Any>) = when (parameter.type) {
+        Boolean::class -> createSwitch(parameter as Parameter<out Boolean>)
+        else -> null
     }
 
-    private fun createSwitch(parameter: Parameter.Switch) = try {
-        SwitchItem(parameter, preferenceProvider.getBoolean(parameter.key), true, ::onOverride, ::onClear)
+    private fun createSwitch(parameter: Parameter<out Boolean>) = try {
+        SwitchItem(parameter, preferenceProvider.getConfig(parameter.key, parameter.type), true,  ::onOverride, ::onClear)
     } catch (e: MissingConfigException) {
         SwitchItem(parameter, parameter.default, false, ::onOverride, ::onClear)
     }
