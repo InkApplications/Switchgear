@@ -1,5 +1,7 @@
 package switchgear
 
+import kotlin.reflect.KClass
+
 /**
  * Defines a service for looking up configuration settings.
  *
@@ -8,11 +10,11 @@ package switchgear
  */
 interface ConfigProvider {
     /**
-     * Get a boolean configuration.
+     * Attempt to load a configuration from the provider.
      *
      * @param key a unique identifier for this configuration value
      * @return The configured value for the specified key
      * @throws MissingConfigException if the value is not configured
      */
-    fun getBoolean(key: String): Boolean
+    fun <T: Any> getConfig(key: String, type: KClass<T>): T
 }

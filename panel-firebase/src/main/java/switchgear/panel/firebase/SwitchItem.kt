@@ -11,7 +11,7 @@ import switchgear.Parameter
  * Item displayed for a switch on/off toggle.
  */
 internal class SwitchItem(
-    val parameter: Parameter.Switch,
+    val parameter: Parameter<out Boolean>,
     val currentValue: Boolean
 ): Item(parameter.key.hashCode().toLong()) {
     override fun getLayout(): Int = R.layout.firebase_item

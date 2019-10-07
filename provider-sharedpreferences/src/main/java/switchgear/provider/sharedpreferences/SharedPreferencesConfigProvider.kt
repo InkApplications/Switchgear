@@ -4,6 +4,7 @@ import android.content.Context
 import inkapplications.switchgear.provider.sharedpreferences.BuildConfig
 import switchgear.ConfigProvider
 import switchgear.MissingConfigException
+import kotlin.reflect.KClass
 
 /**
  * Fetches settings from SharedPreferences.
@@ -14,10 +15,13 @@ import switchgear.MissingConfigException
 class SharedPreferencesConfigProvider(context: Context): ConfigProvider {
     private val preferences = context.getSharedPreferences(BuildConfig.LIBRARY_PACKAGE_NAME, Context.MODE_PRIVATE)
 
-    override fun getBoolean(key: String): Boolean {
+    override fun <T : Any> getConfig(key: String, type: KClass<T>): T {
         if (!preferences.contains(key)) throw MissingConfigException("Preference `$key` not saved in SharedPreferences")
 
-        return preferences.getBoolean(key, false)
+        return when (type) {
+            Boolean::class -> preferences.getBoolean(key, false)
+            else -> throw MissingConfigException("Preference type `${type.java.simpleName}` not supported in SharedPreferences")
+        } as T
     }
 
     /**
