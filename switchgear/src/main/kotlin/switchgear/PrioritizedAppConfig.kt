@@ -13,6 +13,8 @@ package switchgear
 class PrioritizedAppConfig(
     private vararg val providers: ConfigProvider
 ): AppConfig {
+    constructor(providers: List<ConfigProvider>): this(*providers.toTypedArray())
+
     override fun <T : Any> get(argument: Parameter.Optional<T>): T? {
         return providers.tryAll {
             try {
